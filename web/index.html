@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>MemberCare AI lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@420;600&family=Source+Serif+4:opsz,wght@8..60,520;8..60,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#question">Skip to question</a>
+  <main class="wrap">
+    <header class="banner">
+      <div>
+        <p class="eyebrow">Synthetic health-plan member portal</p>
+        <h1>MemberCare AI</h1>
+        <p class="lede">Benefits, claims, and care navigation from synthetic plan and explanation-of-benefit records. Amounts are computed. A person approves a billing review before it opens.</p>
+      </div>
+      <p class="notice" id="notice">SYNTHETIC_MEMBER_DATA_NOT_A_HEALTH_PLAN</p>
+    </header>
+    <div class="layout">
+      <aside class="panel">
+        <label for="actor">Lab actor</label>
+        <select id="actor"></select>
+        <p class="disclaimer" id="actor-warning"></p>
+        <div class="journeys" id="journeys"></div>
+        <h2>Voice</h2>
+        <p class="disclaimer">Speech recognition runs in this browser only when the browser provides it. The server receives text and does not run a recognizer.</p>
+        <div class="row">
+          <button class="secondary" id="speak" type="button">Speak</button>
+          <button class="secondary" id="use-voice" type="button">Send transcript</button>
+        </div>
+        <p class="disclaimer" id="speech-state"></p>
+        <h2>Reviews</h2>
+        <div id="cases"></div>
+      </aside>
+      <section>
+        <div class="thread" id="thread" aria-live="polite"></div>
+        <form class="composer" id="composer">
+          <label for="question">Ask about benefits, a claim, care, or a billing review</label>
+          <textarea id="question" rows="3" required>Why do I owe $85 for my urgent care visit?</textarea>
+          <div class="row">
+            <button class="primary" type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "document_title": "Synthetic 2026 Plan Guide",
+  "plan_name": "Synthetic PPO 2026",
+  "plan_year": 2026,
+  "sections": [
+    {
+      "id": "4.2",
+      "title": "Urgent care",
+      "keywords": [
+        "urgent",
+        "care",
+        "copay",
+        "owe",
+        "visit",
+        "deductible",
+        "claim",
+        "latest"
+      ],
+      "text": "In-network urgent care has a $75 copay. Any deductible amount is the amount recorded on the explanation of benefits. The member owes the copay plus that deductible amount.",
+      "facts": {
+        "service": "urgent-care",
+        "copay_cents": 7500,
+        "deductible_applies": true
+      }
+    },
+    {
+      "id": "5.1",
+      "title": "Physical therapy",
+      "keywords": [
+        "physical",
+        "therapy",
+        "visits",
+        "covered",
+        "visit"
+      ],
+      "text": "In-network physical therapy is covered. The plan allows 20 visits in a calendar year. The in-network copay is $30 per visit.",
+      "facts": {
+        "service": "physical-therapy",
+        "covered": true,
+        "visit_limit": 20,
+        "service_codes": [
+          "97110"
+        ],
+        "copay_cents": 3000
+      }
+    },
+    {
+      "id": "6.1",
+      "title": "Specialist care",
+      "keywords": [
+        "cardiology",
+        "specialist",
+        "network",
+        "referral",
+        "in-network"
+      ],
+      "text": "An in-network specialist visit, including cardiology, has a $50 copay. This PPO does not require a referral.",
+      "facts": {
+        "service": "specialist",
+        "specialty": "cardiology",
+        "copay_cents": 5000,
+        "referral_required": false,
+        "network": "in-network"
+      }
+    },
+    {
+      "id": "7.2",
+      "title": "How member cost share is calculated",
+      "keywords": [
+        "claim",
+        "partial",
+        "partially",
+        "paid",
+        "coinsurance",
+        "benefit",
+        "latest"
+      ],
+      "text": "Outpatient professional services have 20% coinsurance after the deductible. The member owes the copay, deductible, and coinsurance amounts on the explanation of benefits. The plan paid amount is the benefit adjudication. Do not state an amount that is not in this guide or on the explanation of benefits.",
+      "facts": {
+        "coinsurance_percent": 20,
+        "applies_after_deductible": true
+      }
+    },
+    {
+      "id": "8.1",
+      "title": "Billing review",
+      "keywords": [
+        "billing",
+        "review",
+        "approval",
+        "open",
+        "request"
+      ],
+      "text": "A member may request a billing review. The request stays pending until a human reviewer approves opening it.",
+      "facts": {
+        "requires_human_approval": true
+      }
+    }
+  ]
+}

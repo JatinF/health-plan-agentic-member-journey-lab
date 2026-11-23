@@ -1,0 +1,91 @@
+{
+  "document_title": "Synthetic 2026 Other Plan Guide",
+  "plan_name": "Synthetic HMO 2026",
+  "plan_year": 2026,
+  "sections": [
+    {
+      "id": "4.2",
+      "title": "Urgent care",
+      "keywords": [
+        "urgent",
+        "care",
+        "copay",
+        "owe",
+        "visit"
+      ],
+      "text": "In-network urgent care has a $40 copay.",
+      "facts": {
+        "service": "urgent-care",
+        "copay_cents": 4000,
+        "deductible_applies": false
+      }
+    },
+    {
+      "id": "5.1",
+      "title": "Physical therapy",
+      "keywords": [
+        "physical",
+        "therapy",
+        "visits",
+        "covered"
+      ],
+      "text": "In-network physical therapy is covered for 8 visits in a calendar year. The copay is $20.",
+      "facts": {
+        "service": "physical-therapy",
+        "covered": true,
+        "visit_limit": 8,
+        "service_codes": [
+          "97110"
+        ],
+        "copay_cents": 2000
+      }
+    },
+    {
+      "id": "6.1",
+      "title": "Specialist care",
+      "keywords": [
+        "cardiology",
+        "specialist",
+        "network",
+        "referral"
+      ],
+      "text": "An in-network specialist visit has a $35 copay. This HMO requires a referral.",
+      "facts": {
+        "service": "specialist",
+        "specialty": "cardiology",
+        "copay_cents": 3500,
+        "referral_required": true,
+        "network": "in-network"
+      }
+    },
+    {
+      "id": "7.2",
+      "title": "How member cost share is calculated",
+      "keywords": [
+        "claim",
+        "partial",
+        "paid",
+        "coinsurance",
+        "latest"
+      ],
+      "text": "Member amounts come from the explanation of benefits.",
+      "facts": {
+        "coinsurance_percent": 20,
+        "applies_after_deductible": true
+      }
+    },
+    {
+      "id": "8.1",
+      "title": "Billing review",
+      "keywords": [
+        "billing",
+        "review",
+        "approval"
+      ],
+      "text": "A billing review stays pending until a human reviewer approves opening it.",
+      "facts": {
+        "requires_human_approval": true
+      }
+    }
+  ]
+}

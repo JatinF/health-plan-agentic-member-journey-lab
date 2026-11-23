@@ -1,0 +1,11 @@
+# This file was not run on the workstation. Docker is not installed there.
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8765:8765"
+    environment:
+      MEMBERCARE_HOST: "0.0.0.0"
+      MEMBERCARE_PORT: "8765"
+      MEMBERCARE_VAR: "/tmp/membercare"
+      MEMBERCARE_NARRATION: "template"

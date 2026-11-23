@@ -1,0 +1,1960 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-mbr-1001",
+        "name": [
+          {
+            "text": "Alex Rivera"
+          }
+        ],
+        "gender": "unknown"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "synthetic-plan",
+        "name": "Synthetic PPO 2026"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-urgent",
+        "name": "Demo Urgent Care"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-office",
+        "name": "Demo Office"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-pt",
+        "name": "Demo Physical Therapy"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-northwind",
+        "name": "Northwind Heart Clinic"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-lakeview",
+        "name": "Lakeview Cardiology"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-harbor",
+        "name": "Harbor Specialty Heart"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "cov-mbr-1001",
+        "status": "active",
+        "beneficiary": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "payor": [
+          {
+            "reference": "Organization/synthetic-plan"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "SYN-PPO-2026",
+            "name": "Synthetic PPO 2026"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-1048",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-1048"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-03-04",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-urgent"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-03-02",
+          "end": "2026-03-02"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "99213",
+                  "display": "Urgent care visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-03-02",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "urgent-care"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 250,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 180,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 95,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 75,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 10,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 250,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 180,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 95,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 75,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 10,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-2201",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-2201"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-02-12",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-office"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-02-10",
+          "end": "2026-02-10"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "99214",
+                  "display": "Office visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-02-10",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "outpatient-professional"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 400,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 250,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 160,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 50,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 40,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 400,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 250,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 160,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 50,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 40,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-PT-01",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-PT-01"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-01-06",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-pt"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-01-06",
+          "end": "2026-01-06"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "97110",
+                  "display": "Physical therapy visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-01-06",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "physical-therapy"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 120,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 90,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 30,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 120,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 90,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 30,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-PT-02",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-PT-02"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-01-13",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-pt"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-01-13",
+          "end": "2026-01-13"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "97110",
+                  "display": "Physical therapy visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-01-13",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "physical-therapy"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 120,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 90,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 30,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 120,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 90,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 30,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-PT-03",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-PT-03"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-01-20",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-pt"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-01-20",
+          "end": "2026-01-20"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "97110",
+                  "display": "Physical therapy visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-01-20",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "physical-therapy"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 120,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 90,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 30,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 120,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 90,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 30,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-PT-04",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-PT-04"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2026-01-27",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-pt"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-01-27",
+          "end": "2026-01-27"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "97110",
+                  "display": "Physical therapy visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-01-27",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "physical-therapy"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 120,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 90,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 30,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 120,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 90,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 30,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "DEMO-PT-OLD",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "DEMO-PT-OLD"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-1001"
+        },
+        "created": "2025-11-01",
+        "insurer": {
+          "reference": "Organization/synthetic-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-pt"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2025-11-01",
+          "end": "2025-11-01"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-1001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "97110",
+                  "display": "Physical therapy visit"
+                }
+              ]
+            },
+            "servicedDate": "2025-11-01",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "physical-therapy"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 120,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 90,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 30,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 120,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 90,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 30,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-patel",
+        "name": [
+          {
+            "text": "Dr. Sam Patel"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-chen",
+        "name": [
+          {
+            "text": "Dr. Riley Chen"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-blake",
+        "name": [
+          {
+            "text": "Dr. Morgan Blake"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-northwind",
+        "address": {
+          "line": [
+            "100 Demo Heart Ave"
+          ],
+          "city": "Springfield",
+          "state": "IL",
+          "postalCode": "62701"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-lakeview",
+        "address": {
+          "line": [
+            "200 Sample Street"
+          ],
+          "city": "Springfield",
+          "state": "IL",
+          "postalCode": "62701"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-harbor",
+        "address": {
+          "line": [
+            "900 Outside Network Rd"
+          ],
+          "city": "Springfield",
+          "state": "IL",
+          "postalCode": "62701"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-patel",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/prac-patel"
+        },
+        "organization": {
+          "reference": "Organization/clinic-northwind"
+        },
+        "location": [
+          {
+            "reference": "Location/loc-northwind"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://synthetic.example/specialty",
+                "code": "cardiology",
+                "display": "Cardiology"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-0141"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://synthetic.example/network-status",
+            "valueCode": "in-network"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-chen",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/prac-chen"
+        },
+        "organization": {
+          "reference": "Organization/clinic-lakeview"
+        },
+        "location": [
+          {
+            "reference": "Location/loc-lakeview"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://synthetic.example/specialty",
+                "code": "cardiology",
+                "display": "Cardiology"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-0142"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://synthetic.example/network-status",
+            "valueCode": "in-network"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-blake",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/prac-blake"
+        },
+        "organization": {
+          "reference": "Organization/clinic-harbor"
+        },
+        "location": [
+          {
+            "reference": "Location/loc-harbor"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://synthetic.example/specialty",
+                "code": "cardiology",
+                "display": "Cardiology"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-0199"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://synthetic.example/network-status",
+            "valueCode": "out-of-network"
+          }
+        ]
+      }
+    }
+  ]
+}

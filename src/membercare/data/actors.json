@@ -1,0 +1,23 @@
+{
+  "demo-member": {
+    "tenant_id": "demo-plan",
+    "role": "member",
+    "subject_id": "MBR-1001",
+    "patient_id": "patient-mbr-1001",
+    "display_name": "Alex Rivera"
+  },
+  "demo-reviewer": {
+    "tenant_id": "demo-plan",
+    "role": "reviewer",
+    "subject_id": "REV-1",
+    "patient_id": null,
+    "display_name": "Synthetic Reviewer"
+  },
+  "other-member": {
+    "tenant_id": "other-plan",
+    "role": "member",
+    "subject_id": "MBR-2001",
+    "patient_id": "patient-mbr-2001",
+    "display_name": "Jordan Lee"
+  }
+}

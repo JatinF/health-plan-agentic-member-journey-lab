@@ -1,0 +1,365 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-mbr-2001",
+        "name": [
+          {
+            "text": "Jordan Lee"
+          }
+        ],
+        "gender": "unknown"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "other-plan",
+        "name": "Synthetic HMO 2026"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "clinic-quinn",
+        "name": "Quinn Cardiology"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "cov-mbr-2001",
+        "status": "active",
+        "beneficiary": {
+          "reference": "Patient/patient-mbr-2001"
+        },
+        "payor": [
+          {
+            "reference": "Organization/other-plan"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "SYN-HMO-2026",
+            "name": "Synthetic HMO 2026"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "OTHER-9001",
+        "identifier": [
+          {
+            "system": "https://synthetic.example/eob",
+            "value": "OTHER-9001"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "professional"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "Patient/patient-mbr-2001"
+        },
+        "created": "2026-03-03",
+        "insurer": {
+          "reference": "Organization/other-plan"
+        },
+        "provider": {
+          "reference": "Organization/clinic-quinn"
+        },
+        "outcome": "complete",
+        "billablePeriod": {
+          "start": "2026-03-01",
+          "end": "2026-03-01"
+        },
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/cov-mbr-2001"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "99213",
+                  "display": "Urgent care visit"
+                }
+              ]
+            },
+            "servicedDate": "2026-03-01",
+            "extension": [
+              {
+                "url": "https://synthetic.example/service-category",
+                "valueCode": "urgent-care"
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 100,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 100,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 60,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 40,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "coinsurance"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted"
+                }
+              ]
+            },
+            "amount": {
+              "value": 100,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 100,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit"
+                }
+              ]
+            },
+            "amount": {
+              "value": 60,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "copay"
+                }
+              ]
+            },
+            "amount": {
+              "value": 40,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "coinsurance"
+                }
+              ]
+            },
+            "amount": {
+              "value": 0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "prac-quinn",
+        "name": [
+          {
+            "text": "Dr. Casey Quinn"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-quinn",
+        "address": {
+          "line": [
+            "15 Other Plan Way"
+          ],
+          "city": "Springfield",
+          "state": "IL",
+          "postalCode": "62701"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-quinn",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/prac-quinn"
+        },
+        "organization": {
+          "reference": "Organization/clinic-quinn"
+        },
+        "location": [
+          {
+            "reference": "Location/loc-quinn"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "https://synthetic.example/specialty",
+                "code": "cardiology",
+                "display": "Cardiology"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-0177"
+          }
+        ],
+        "extension": [
+          {
+            "url": "https://synthetic.example/network-status",
+            "valueCode": "in-network"
+          }
+        ]
+      }
+    }
+  ]
+}

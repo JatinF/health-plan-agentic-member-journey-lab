@@ -1,0 +1,34 @@
+[project]
+name = "health-plan-agentic-member-journey-lab"
+version = "0.1.0"
+description = "Synthetic health-plan member journey lab with LangGraph, MCP, and FHIR-shaped records."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Jatinder Singh" }]
+dependencies = [
+  "aiosqlite>=0.20",
+  "fastapi>=0.115",
+  "httpx>=0.27",
+  "langgraph>=1.2,<2",
+  "langgraph-checkpoint-sqlite>=3,<4",
+  "mcp>=2,<3",
+  "uvicorn>=0.32",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+membercare = ["data/**/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
